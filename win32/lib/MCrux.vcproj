@@ -62,9 +62,9 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="comsuppw.lib libcmtd.lib libcpmtd.lib version.lib oldnames.lib comctl32.lib shlwapi.lib libxml2.lib"
+				AdditionalDependencies="comsuppw.lib libcmtd.lib libcpmtd.lib version.lib oldnames.lib comctl32.lib shlwapi.lib libxml2.lib libcef.lib libcef_dll_wrapper.lib opengl32.lib glu32.lib"
 				LinkIncremental="2"
-				AdditionalLibraryDirectories="&quot;$(WebKitOutputDir)\lib&quot;;&quot;$(SolutionDir)\..\MCruxLibraries\lib&quot;"
+				AdditionalLibraryDirectories="&quot;$(SolutionDir)\..\MCruxLibraries\lib&quot;;&quot;$(SolutionDir)\..\MCruxLibraries\lib\debug&quot;"
 				IgnoreAllDefaultLibraries="true"
 				TypeLibraryFile="$(IntDir)/MCrux.tlb"
 				GenerateDebugInformation="true"
@@ -143,9 +143,9 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="comsuppw.lib libcmt.lib libcpmt.lib comsupp.lib version.lib oldnames.lib shell32.lib comctl32.lib shlwapi.lib libxml2.lib"
+				AdditionalDependencies="comsuppw.lib libcmt.lib libcpmt.lib comsupp.lib version.lib oldnames.lib shell32.lib comctl32.lib shlwapi.lib libxml2.lib libcef.lib libcef_dll_wrapper.lib opengl32.lib glu32.lib"
 				LinkIncremental="1"
-				AdditionalLibraryDirectories="&quot;$(WebKitOutputDir)\lib&quot;;&quot;$(SolutionDir)\..\..\MCruxLibraries\lib&quot;"
+				AdditionalLibraryDirectories="&quot;$(SolutionDir)\..\..\MCruxLibraries\lib&quot;;&quot;$(SolutionDir)\..\MCruxLibraries\lib\release&quot;"
 				IgnoreAllDefaultLibraries="true"
 				TypeLibraryFile="$(IntDir)/MCrux.tlb"
 				GenerateDebugInformation="true"

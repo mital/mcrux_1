@@ -23,6 +23,10 @@
 #include "MCruxSpecParser.h"
 
 #ifdef WIN32
+
+#include <cef/cef.h>
+#include <cef/cef_wrapper.h>
+
 #include "../win32/stdafx.h"
 #include <commctrl.h>
 #include <objbase.h>
@@ -57,6 +61,10 @@ BOOL APIENTRY DllMain( HMODULE hModule,
 #else // for linux
 #include <gtk/gtk.h>
 #endif
+
+static CefSettings settings;
+static CefBrowserSettings browserDefaults;
+
 
 MCrux::MCrux()
 {
@@ -121,6 +129,19 @@ bool MCrux::InitializeAndRunWith(const string & mcruxAppConfigFileName
   list<MCruxWindowConfiguration*> mcruxWindowConfigs;
   parser.getWindowConfigList(mcruxWindowConfigs);
 
+#define TEST_SINGLE_THREADED_MESSAGE_LOOP
+#ifdef TEST_SINGLE_THREADED_MESSAGE_LOOP
+  // Initialize the CEF with messages processed using the current application's
+  // message loop.
+  settings.multi_threaded_message_loop = false;
+#else
+  // Initialize the CEF with messages processed using a separate UI thread.
+  settings.multi_threaded_message_loop = true;
+#endif
+  
+  CefInitialize(settings, browserDefaults);
+
+
   if(mcruxWindowConfigs.size())
   {
 #ifdef WIN32
@@ -130,7 +151,12 @@ bool MCrux::InitializeAndRunWith(const string & mcruxAppConfigFileName
     // Main message loop:
     while (GetMessage(&msg, NULL, 0, 0))
     {
-      if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
+ #ifdef TEST_SINGLE_THREADED_MESSAGE_LOOP
+    // Allow the CEF to do its message loop processing.
+    CefDoMessageLoopWork();
+#endif
+
+	if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
       {
         TranslateMessage(&msg);
         DispatchMessage(&msg);
@@ -151,6 +177,9 @@ bool MCrux::InitializeAndRunWith(const string & mcruxAppConfigFileName
       << "you can refer documentation at http://code.google.com/p/mcrux/wiki/MCruxSpecFile" << endl;
 #endif
   }
+  
+  // Shut down the CEF
+  CefShutdown();
 
   UnInitialize();
   return bRet;
