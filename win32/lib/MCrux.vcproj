@@ -41,7 +41,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="&quot;$(IntDir)\include&quot;;&quot;$(SolutionDir)\..&quot;;&quot;$(SolutionDir)\..\lib&quot;;&quot;$(SolutionDir)\..\include&quot;;&quot;$(SolutionDir)\..\MCruxLibraries\include&quot;"
+				AdditionalIncludeDirectories="&quot;$(IntDir)\include&quot;;&quot;$(SolutionDir)\lib&quot;;&quot;$(SolutionDir)\..&quot;;&quot;$(SolutionDir)\..\lib&quot;;&quot;$(SolutionDir)\..\include&quot;;&quot;$(SolutionDir)\..\MCruxLibraries\include&quot;"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;_USRDLL;MCRUX_EXPORTS"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -124,7 +124,7 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="&quot;$(IntDir)\include&quot;;&quot;$(SolutionDir)\..&quot;;&quot;$(SolutionDir)\..\lib&quot;;&quot;$(SolutionDir)\..\include&quot;;&quot;$(SolutionDir)\..\MCruxLibraries\include&quot;"
+				AdditionalIncludeDirectories="&quot;$(IntDir)\include&quot;;&quot;$(SolutionDir)\lib&quot;;&quot;$(SolutionDir)\..&quot;;&quot;$(SolutionDir)\..\lib&quot;;&quot;$(SolutionDir)\..\include&quot;;&quot;$(SolutionDir)\..\MCruxLibraries\include&quot;"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL;MCRUX_EXPORTS"
 				RuntimeLibrary="0"
 				UsePrecompiledHeader="0"
@@ -191,11 +191,19 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
+				RelativePath="..\..\src\lib\window\BrowserHandler.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\..\src\lib\MCrux.cpp"
 				>
 			</File>
 			<File
 				RelativePath="..\..\src\lib\MCruxSpecParser.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\src\lib\window\MCruxWin32Window.cpp"
 				>
 			</File>
 			<File
@@ -206,12 +214,20 @@
 				RelativePath="..\..\src\lib\window\MCruxWindowConfiguration.cpp"
 				>
 			</File>
+			<File
+				RelativePath="..\..\src\lib\window\MCruxWindowManager.cpp"
+				>
+			</File>
 		</Filter>
 		<Filter
 			Name="Header Files"
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
+			<File
+				RelativePath="..\..\src\lib\window\BrowserHandler.h"
+				>
+			</File>
 			<File
 				RelativePath="..\..\src\include\mcrux\MCrux.h"
 				>
@@ -221,11 +237,19 @@
 				>
 			</File>
 			<File
+				RelativePath="..\..\src\lib\window\MCruxWin32Window.h"
+				>
+			</File>
+			<File
 				RelativePath="..\..\src\lib\window\MCruxWindow.h"
 				>
 			</File>
 			<File
 				RelativePath="..\..\src\lib\window\MCruxWindowConfiguration.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\src\lib\window\MCruxWindowManager.h"
 				>
 			</File>
 		</Filter>

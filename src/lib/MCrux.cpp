@@ -21,9 +21,11 @@
 //
 #include <mcrux/MCrux.h>
 #include "MCruxSpecParser.h"
+#include <src/lib/window/MCruxWindowManager.h>
+
 
 #ifdef WIN32
-
+#include "window/MCruxWin32Window.h"
 #include <cef/cef.h>
 #include <cef/cef_wrapper.h>
 
@@ -89,6 +91,8 @@ void MCrux::Initialize(
   InitCtrlEx.dwICC  = 0x00004000; //ICC_STANDARD_CLASSES;
   InitCommonControlsEx(&InitCtrlEx);
 
+  MCruxWin32Window::initWindowClass(GetModuleHandle(NULL));
+
   // Init COM
   OleInitialize(NULL);
 #else
@@ -104,6 +108,7 @@ void MCrux::UnInitialize()
 #ifdef WIN32
   // Shut down COM.
   OleUninitialize();
+  MCruxWin32Window::unInitWindowClass(GetModuleHandle(NULL));
 #endif
 }
 
@@ -140,6 +145,7 @@ bool MCrux::InitializeAndRunWith(const string & mcruxAppConfigFileName
 #endif
   
   CefInitialize(settings, browserDefaults);
+  MCruxWindowManager windowManager(mcruxWindowConfigs);
 
 
   if(mcruxWindowConfigs.size())
@@ -179,7 +185,7 @@ bool MCrux::InitializeAndRunWith(const string & mcruxAppConfigFileName
   }
   
   // Shut down the CEF
-  CefShutdown();
+//  CefShutdown();
 
   UnInitialize();
   return bRet;
