@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MCrux", "lib\MCrux.vcproj", "{03BE8A16-5FAD-4283-BC03-7F8FE6A5BF2F}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MCrux_exe", "bin\MCrux_exe.vcproj", "{A91B5E21-42FD-4F20-A7C0-E381552AD40C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{03BE8A16-5FAD-4283-BC03-7F8FE6A5BF2F} = {03BE8A16-5FAD-4283-BC03-7F8FE6A5BF2F}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{03BE8A16-5FAD-4283-BC03-7F8FE6A5BF2F}.Debug|Win32.ActiveCfg = Debug|Win32
+		{03BE8A16-5FAD-4283-BC03-7F8FE6A5BF2F}.Debug|Win32.Build.0 = Debug|Win32
+		{03BE8A16-5FAD-4283-BC03-7F8FE6A5BF2F}.Release|Win32.ActiveCfg = Release|Win32
+		{03BE8A16-5FAD-4283-BC03-7F8FE6A5BF2F}.Release|Win32.Build.0 = Release|Win32
+		{A91B5E21-42FD-4F20-A7C0-E381552AD40C}.Debug|Win32.ActiveCfg = Debug|Win32
+		{A91B5E21-42FD-4F20-A7C0-E381552AD40C}.Debug|Win32.Build.0 = Debug|Win32
+		{A91B5E21-42FD-4F20-A7C0-E381552AD40C}.Release|Win32.ActiveCfg = Release|Win32
+		{A91B5E21-42FD-4F20-A7C0-E381552AD40C}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
