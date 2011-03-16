@@ -62,7 +62,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="comsuppw.lib libcmtd.lib libcpmtd.lib version.lib oldnames.lib comctl32.lib shlwapi.lib libxml2.lib WebKitGUID.lib WebKit.lib JavaScriptCore.lib"
+				AdditionalDependencies="comsuppw.lib libcmtd.lib libcpmtd.lib version.lib oldnames.lib comctl32.lib shlwapi.lib libxml2.lib"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories="&quot;$(WebKitOutputDir)\lib&quot;;&quot;$(SolutionDir)\..\MCruxLibraries\lib&quot;"
 				IgnoreAllDefaultLibraries="true"
@@ -143,7 +143,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="comsuppw.lib libcmt.lib libcpmt.lib comsupp.lib version.lib oldnames.lib shell32.lib comctl32.lib shlwapi.lib libxml2.lib WebKitGUID.lib WebKit.lib JavaScriptCore.lib"
+				AdditionalDependencies="comsuppw.lib libcmt.lib libcpmt.lib comsupp.lib version.lib oldnames.lib shell32.lib comctl32.lib shlwapi.lib libxml2.lib"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories="&quot;$(WebKitOutputDir)\lib&quot;;&quot;$(SolutionDir)\..\..\MCruxLibraries\lib&quot;"
 				IgnoreAllDefaultLibraries="true"
