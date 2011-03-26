@@ -47,7 +47,8 @@ class MCRUX_API MCrux
   MCrux();
   ~MCrux();
 
-  bool InitializeAndRunWith(const string & mcruxAppConfigFileName
+  bool InitializeAndRunWith(const string & mcruxspec_path,
+	  const string & plugin_path
 #ifndef WIN32
       , int argc, char **argv
 #endif

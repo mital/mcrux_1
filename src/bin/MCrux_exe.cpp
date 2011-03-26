@@ -18,10 +18,19 @@
  **/
 
 #include <tchar.h>
+#include <shlwapi.h>
 
 #include <win32/stdafx.h>
 
 #include <MCrux/MCrux.h>
+
+std::string getPath()
+{	
+	char path[MAX_PATH]= { 0 };
+	if ( GetModuleFileNameA( NULL, path, MAX_PATH))
+		PathRemoveFileSpecA(path);
+	return std::string(path);
+}
 
 int APIENTRY _tWinMain(HINSTANCE hInstance,
                      HINSTANCE hPrevInstance,
@@ -33,11 +42,18 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 	UNREFERENCED_PARAMETER(lpCmdLine);
 	UNREFERENCED_PARAMETER(nCmdShow);
 
-	MCrux mcrux;
-	//string appConfigFileWithFullPath = "C:\\mcrux\\newapi\\window_create.mcruxspec";
-	//string appConfigFileWithFullPath = "C:\\mcrux\\myapplication.mcruxspec";
-	string appConfigFileWithFullPath = "C:\\mcrux\\2Calculator\\calculator.mcruxspec";
-	mcrux.InitializeAndRunWith(appConfigFileWithFullPath);
 
+	//string mcruxspec_path = "C:\\mcrux\\newapi\\window_create.mcruxspec";
+	//string mcruxspec_path = "C:\\mcrux\\myapplication.mcruxspec";
+	//string mcruxspec_path = "C:\\mcrux\\2Calculator\\calculator.mcruxspec";
+
+	const std::string path(getPath());
+	std::string mcruxspec_path(path);
+	mcruxspec_path += "\\app.mcruxspec";
+	std::string plugins_path(path);
+	plugins_path += "\\plugins";
+
+	MCrux mcrux;
+	mcrux.InitializeAndRunWith(mcruxspec_path, plugins_path);
 	return 0;
 }

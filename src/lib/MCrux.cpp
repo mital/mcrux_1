@@ -28,6 +28,7 @@
 #include "window/MCruxWin32Window.h"
 #include <cef/cef.h>
 #include <cef/cef_wrapper.h>
+//#include <cef/transfer_utils.h>
 
 #include "../win32/stdafx.h"
 #include <commctrl.h>
@@ -59,14 +60,10 @@ BOOL APIENTRY DllMain( HMODULE hModule,
 #pragma managed(pop)
 #endif
 
-
-#else // for linux
-#include <gtk/gtk.h>
 #endif
 
 static CefSettings settings;
 static CefBrowserSettings browserDefaults;
-
 
 MCrux::MCrux()
 {
@@ -95,11 +92,6 @@ void MCrux::Initialize(
 
   // Init COM
   OleInitialize(NULL);
-#else
-  gtk_init (&argc, &argv);
-  if (!g_thread_supported ())
-    g_thread_init (NULL);
-
 #endif
 }
 
@@ -112,9 +104,8 @@ void MCrux::UnInitialize()
 #endif
 }
 
-
-
-bool MCrux::InitializeAndRunWith(const string & mcruxAppConfigFileName
+bool MCrux::InitializeAndRunWith(const string & mcruxspec_path,
+	  const string & plugin_path
 #ifndef WIN32
     , int argc, char **argv
 #endif
@@ -129,7 +120,7 @@ bool MCrux::InitializeAndRunWith(const string & mcruxAppConfigFileName
 
   // parse the given configuration file
   MCruxSpecParser parser;
-  parser.parse(mcruxAppConfigFileName);
+  parser.parse(mcruxspec_path);
 
   list<MCruxWindowConfiguration*> mcruxWindowConfigs;
   parser.getWindowConfigList(mcruxWindowConfigs);
@@ -143,8 +134,15 @@ bool MCrux::InitializeAndRunWith(const string & mcruxAppConfigFileName
   // Initialize the CEF with messages processed using a separate UI thread.
   settings.multi_threaded_message_loop = true;
 #endif
-  
+
+  // Setting private plugin path.
+  CefString str(plugin_path);
+  settings.extra_plugin_paths = cef_string_list_alloc();
+  cef_string_list_append(settings.extra_plugin_paths, str.GetStruct());
+
+  browserDefaults.web_security_disabled = true;
   CefInitialize(settings, browserDefaults);
+
   MCruxWindowManager windowManager(mcruxWindowConfigs);
 
 
@@ -169,9 +167,6 @@ bool MCrux::InitializeAndRunWith(const string & mcruxAppConfigFileName
       }
     }
     bRet = true;
-#else // for linux
-    gtk_main();
-
 #endif
   }
   else
@@ -185,7 +180,7 @@ bool MCrux::InitializeAndRunWith(const string & mcruxAppConfigFileName
   }
   
   // Shut down the CEF
-//  CefShutdown();
+  //CefShutdown();
 
   UnInitialize();
   return bRet;

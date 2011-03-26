@@ -69,12 +69,7 @@ void MCruxWin32Window::insertBrowser()
     // Creat the new child child browser window
     bool bRes = CefBrowser::CreateBrowser(info, false,
         static_cast<CefRefPtr<CefHandler> >(handler),
-        "http://www.google.com");
-
-	// Start the timer that will be used to update child window state    
-	//SetTimer(hWnd, 1, 250, NULL);
-
-
+		config->getURL());
 }
 
 int MCruxWin32Window::ShowWindow() const
@@ -144,38 +139,8 @@ void MCruxWin32Window::unInitWindowClass(HINSTANCE hInstance)
 
 LRESULT CALLBACK MCruxWin32Window::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
-	int wmId, wmEvent;
-	PAINTSTRUCT ps;
-	HDC hdc;
-
 	switch (message)
 	{
-	case WM_TIMER:
-		if(MCruxWin32Window::mcruxWindows[hWnd])
-		{
-			//MCruxWin32Window::mcruxWindows[hWnd]->timerFired();
-		}
-		break;
-	case WM_COMMAND:
-		wmId    = LOWORD(wParam);
-		wmEvent = HIWORD(wParam);
-		// Parse the menu selections:
-		//switch (wmId)
-		//{
-		//case IDM_ABOUT:
-		//	DialogBox(hInst, MAKEINTRESOURCE(IDD_ABOUTBOX), hWnd, About);
-		//	break;
-		//case IDM_EXIT:
-		//	DestroyWindow(hWnd);
-		//	break;
-		//default:
-			return DefWindowProc(hWnd, message, wParam, lParam);
-		//}
-		break;
-	case WM_PAINT:
-		hdc = BeginPaint(hWnd, &ps);
-		EndPaint(hWnd, &ps);
-		break;
 	case WM_DESTROY:
 		PostQuitMessage(0);
 		break;

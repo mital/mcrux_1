@@ -229,7 +229,7 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\src\include\mcrux\MCrux.h"
+				RelativePath="..\..\include\mcrux\MCrux.h"
 				>
 			</File>
 			<File

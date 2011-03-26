@@ -61,7 +61,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="MCrux.lib"
+				AdditionalDependencies="MCrux.lib shlwapi.lib"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories="&quot;$(MCruxOutputDir)\$(ConfigurationName)\bin&quot;"
 				GenerateDebugInformation="true"
@@ -139,7 +139,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="MCrux.lib"
+				AdditionalDependencies="MCrux.lib shlwapi.lib"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories="&quot;$(MCruxOutputDir)\$(ConfigurationName)\bin&quot;"
 				GenerateDebugInformation="true"
