@@ -19,6 +19,7 @@
 #include "Resource.h"
 #include <tchar.h>
 #include <sstream>
+#include <list>
 
 #include "BrowserHandler.h"
 
@@ -205,11 +206,147 @@ void ClientHandler::SetMainHwnd(CefWindowHandle hwnd)
   m_MainHwnd = hwnd;
   Unlock();
 }
+
 ////////////////////////////////////////////////////////
 /////////////////////// win32 specifics ////////////////
 ////////////////////////////////////////////////////////
 
 // ClientHandler implementation
+
+static void AddMenuItem(CefRefPtr<CefBrowser> browser, HMENU menu, int index,
+                        CefHandler::MenuId id, const wchar_t* label,
+                        bool enabled, std::list<std::wstring>& label_list)
+{
+  std::wstring actual_label = label;
+  CefRefPtr<CefHandler> handler = browser->GetHandler();
+  if(handler.get()) {
+    // Let the handler change the label if desired
+	  handler->HandleGetMenuLabel(browser, id, CefString(actual_label));
+  }
+  
+  // store the label in a list to simplify memory management
+  label_list.push_back(actual_label);
+  
+  MENUITEMINFO mii;
+  mii.cbSize = sizeof(mii);
+  mii.fMask = MIIM_FTYPE | MIIM_ID | MIIM_STRING;
+  mii.fType = MFT_STRING;
+  if(!enabled) {
+    mii.fMask |= MIIM_STATE;
+    mii.fState = MFS_GRAYED;
+  }
+  mii.wID = id;
+  mii.dwTypeData = const_cast<wchar_t*>(label_list.back().c_str());
+
+  InsertMenuItem(menu, index, TRUE, &mii);
+}
+
+
+static void AddMenuSeparator(HMENU menu, int index)
+{
+  MENUITEMINFO mii;
+  mii.cbSize = sizeof(mii);
+  mii.fMask = MIIM_FTYPE;
+  mii.fType = MFT_SEPARATOR;
+
+  InsertMenuItem(menu, index, TRUE, &mii);
+}
+
+
+// Called on the UI thread before a context menu is displayed. To cancel
+// display of the default context menu return RV_HANDLED.
+CefHandler::RetVal ClientHandler::HandleBeforeMenu(CefRefPtr<CefBrowser> browser,
+                                  const MenuInfo& menuInfo)
+{
+	REQUIRE_UI_THREAD();
+	HMENU menu = NULL;
+	std::list<std::wstring> label_list;
+
+	int type_flags = MENUTYPE_NONE;
+	if(menuInfo.selectionText.length > 0)
+		type_flags |= MENUTYPE_SELECTION;
+
+	CefRefPtr<CefHandler> handler = browser->GetHandler();
+	// Build the correct default context menu
+	if (true) {
+		menu = CreatePopupMenu();
+		AddMenuItem(browser, menu, -1, MENU_ID_PRINT, L"Show Inspector",
+			true, label_list);
+
+	} else if (type_flags &  MENUTYPE_EDITABLE) {
+		//menu = CreatePopupMenu();
+		//AddMenuItem(browser, menu, -1, MENU_ID_UNDO, L"Undo",
+		//	!!(edit_flags & WebContextMenuData::CanUndo), label_list);
+		//AddMenuItem(browser, menu, -1, MENU_ID_REDO, L"Redo",
+		//	!!(edit_flags & WebContextMenuData::CanRedo), label_list);
+		//AddMenuSeparator(menu, -1);
+		//AddMenuItem(browser, menu, -1, MENU_ID_CUT, L"Cut",
+		//	!!(edit_flags & WebContextMenuData::CanCut), label_list);
+		//AddMenuItem(browser, menu, -1, MENU_ID_COPY, L"Copy",
+		//	!!(edit_flags & WebContextMenuData::CanCopy), label_list);
+		//AddMenuItem(browser, menu, -1, MENU_ID_PASTE, L"Paste",
+		//	!!(edit_flags & WebContextMenuData::CanPaste), label_list);
+		//AddMenuItem(browser, menu, -1, MENU_ID_DELETE, L"Delete",
+		//	!!(edit_flags & WebContextMenuData::CanDelete), label_list);
+		//AddMenuSeparator(menu, -1);
+		//AddMenuItem(browser, menu, -1, MENU_ID_SELECTALL, L"Select All",
+		//	!!(edit_flags & MENU_CAN_SELECT_ALL), label_list);
+	}
+	//else if(type_flags & MENUTYPE_SELECTION) {
+	//	menu = CreatePopupMenu();
+	//	AddMenuItem(browser, menu, -1, MENU_ID_COPY, L"Copy",
+	//		!!(edit_flags & WebContextMenuData::CanCopy), label_list);
+	//} else if(type_flags & (MENUTYPE_PAGE | MENUTYPE_FRAME)) {
+	//	menu = CreatePopupMenu();
+	//	AddMenuItem(browser, menu, -1, MENU_ID_NAV_BACK, L"Back",
+	//		browser->UIT_CanGoBack(), label_list);
+	//	AddMenuItem(browser, menu, -1, MENU_ID_NAV_FORWARD, L"Forward",
+	//		browser->UIT_CanGoForward(), label_list);
+	//	AddMenuSeparator(menu, -1);
+	//	AddMenuItem(browser, menu, -1, MENU_ID_PRINT, L"Print",
+	//		true, label_list);
+	//	AddMenuItem(browser, menu, -1, MENU_ID_VIEWSOURCE, L"View Source",
+	//		true, label_list);
+	//}
+
+	if(menu) {
+		// show the context menu
+		int selected_id = TrackPopupMenu(menu,
+			TPM_LEFTALIGN | TPM_RIGHTBUTTON | TPM_RETURNCMD | TPM_RECURSE,
+			menuInfo.x, menuInfo.y, 0, browser->GetWindowHandle(), NULL);
+
+		if(selected_id != 0) {
+			// An action was chosen
+			CefHandler::MenuId menuId = static_cast<CefHandler::MenuId>(selected_id);
+			bool handled = false;
+			if(handler.get()) {
+				// Ask the handler if it wants to handle the action
+				CefHandler::RetVal rv = handler->HandleMenuAction(browser, menuId);
+				handled = (rv == RV_HANDLED);
+			}
+
+			//if(!handled) {
+			//	// Execute the action
+			//	CefRefPtr<CefFrame> frame = browser->GetFocusedFrame();
+			//	frame->AddRef();
+			//	browser->Handle(menuId, frame.get());
+			//}
+		}
+	}
+
+	DestroyMenu(menu);
+
+	return RV_HANDLED;
+}
+
+CefHandler::RetVal ClientHandler::HandleMenuAction(CefRefPtr<CefBrowser> browser,
+                              MenuId menuId)
+{
+	REQUIRE_UI_THREAD();
+	if (menuId == MENU_ID_PRINT)
+		browser->ShowDevTools();
+	return RV_HANDLED;
+}
 
 CefHandler::RetVal ClientHandler::HandleBeforeCreated(
     CefRefPtr<CefBrowser> parentBrowser, CefWindowInfo& createInfo, bool popup,

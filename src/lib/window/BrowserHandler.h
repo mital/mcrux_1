@@ -228,11 +228,7 @@ public:
   // Called on the UI thread before a context menu is displayed. To cancel
   // display of the default context menu return RV_HANDLED.
   virtual RetVal HandleBeforeMenu(CefRefPtr<CefBrowser> browser,
-                                  const MenuInfo& menuInfo)
-  {
-    REQUIRE_UI_THREAD();
-    return RV_CONTINUE;
-  }
+                                  const MenuInfo& menuInfo);
 
   // Called on the UI thread to optionally override the default text for a
   // context menu item. |label| contains the default text and may be modified to
@@ -247,11 +243,7 @@ public:
   // Called on the UI thread when an option is selected from the default context
   // menu. Return RV_HANDLED to cancel default handling of the action.
   virtual RetVal HandleMenuAction(CefRefPtr<CefBrowser> browser,
-                                  MenuId menuId)
-  {
-    REQUIRE_UI_THREAD();
-    return RV_CONTINUE;
-  }
+                                  MenuId menuId);
 
   // Called on the UI thread to allow customization of standard print options
   // before the print dialog is displayed. |printOptions| allows specification
