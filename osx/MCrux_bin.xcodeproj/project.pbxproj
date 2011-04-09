@@ -12,6 +12,9 @@
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		F1E8FFDE1350131D00D65F97 /* MCruxSpecParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F1E8FFDC1350131D00D65F97 /* MCruxSpecParser.cpp */; };
+		F1E8FFF61350172200D65F97 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F1E8FFF51350172200D65F97 /* libxml2.dylib */; };
+		F1E8FFFB1350177000D65F97 /* MCruxWindowConfiguration.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F1E8FFF91350177000D65F97 /* MCruxWindowConfiguration.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +30,11 @@
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		8D1107310486CEB800E47090 /* MCrux_bin-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "MCrux_bin-Info.plist"; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* MCrux_bin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MCrux_bin.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1E8FFDC1350131D00D65F97 /* MCruxSpecParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MCruxSpecParser.cpp; path = ../src/lib/MCruxSpecParser.cpp; sourceTree = SOURCE_ROOT; };
+		F1E8FFDD1350131D00D65F97 /* MCruxSpecParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MCruxSpecParser.h; path = ../src/lib/MCruxSpecParser.h; sourceTree = SOURCE_ROOT; };
+		F1E8FFF51350172200D65F97 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		F1E8FFF91350177000D65F97 /* MCruxWindowConfiguration.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MCruxWindowConfiguration.cpp; path = ../src/lib/window/MCruxWindowConfiguration.cpp; sourceTree = SOURCE_ROOT; };
+		F1E8FFFA1350177000D65F97 /* MCruxWindowConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MCruxWindowConfiguration.h; path = ../src/lib/window/MCruxWindowConfiguration.h; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +43,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
+				F1E8FFF61350172200D65F97 /* libxml2.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,11 +88,16 @@
 		29B97314FDCFA39411CA2CEA /* MCrux_bin */ = {
 			isa = PBXGroup;
 			children = (
+				F1E8FFF91350177000D65F97 /* MCruxWindowConfiguration.cpp */,
+				F1E8FFFA1350177000D65F97 /* MCruxWindowConfiguration.h */,
+				F1E8FFDC1350131D00D65F97 /* MCruxSpecParser.cpp */,
+				F1E8FFDD1350131D00D65F97 /* MCruxSpecParser.h */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
+				F1E8FFF51350172200D65F97 /* libxml2.dylib */,
 			);
 			name = MCrux_bin;
 			sourceTree = "<group>";
@@ -180,6 +194,8 @@
 			files = (
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
 				256AC3DA0F4B6AC300CF3369 /* MCrux_binAppDelegate.m in Sources */,
+				F1E8FFDE1350131D00D65F97 /* MCruxSpecParser.cpp in Sources */,
+				F1E8FFFB1350177000D65F97 /* MCruxWindowConfiguration.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,8 +232,13 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = MCrux_bin_Prefix.pch;
+				HEADER_SEARCH_PATHS = (
+					../MCruxLibraries/include,
+					/usr/include/libxml2,
+				);
 				INFOPLIST_FILE = "MCrux_bin-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
+				PRELINK_LIBS = "";
 				PRODUCT_NAME = MCrux_bin;
 			};
 			name = Debug;
@@ -230,8 +251,13 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = MCrux_bin_Prefix.pch;
+				HEADER_SEARCH_PATHS = (
+					../MCruxLibraries/include,
+					/usr/include/libxml2,
+				);
 				INFOPLIST_FILE = "MCrux_bin-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
+				PRELINK_LIBS = "";
 				PRODUCT_NAME = MCrux_bin;
 			};
 			name = Release;

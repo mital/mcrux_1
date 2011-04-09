@@ -254,7 +254,7 @@
 						<dict>
 							<key>PBXSmartGroupTreeModuleColumnWidthsKey</key>
 							<array>
-								<real>186</real>
+								<real>293</real>
 							</array>
 							<key>PBXSmartGroupTreeModuleColumnsKey_v4</key>
 							<array>
@@ -266,16 +266,20 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateExpansionKey</key>
 							<array>
 								<string>29B97314FDCFA39411CA2CEA</string>
+								<string>1C37FBAC04509CD000000102</string>
+								<string>F1E8FFD8135012AA00D65F97</string>
+								<string>F1E80002135018C900D65F97</string>
 								<string>1C37FABC05509CD000000102</string>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>0</integer>
+									<integer>12</integer>
+									<integer>11</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 0}, {186, 445}}</string>
+							<string>{{0, 0}, {293, 686}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -287,19 +291,19 @@
 					<key>GeometryConfiguration</key>
 					<dict>
 						<key>Frame</key>
-						<string>{{0, 0}, {203, 463}}</string>
+						<string>{{0, 0}, {310, 704}}</string>
 						<key>GroupTreeTableConfiguration</key>
 						<array>
 							<string>MainColumn</string>
-							<real>186</real>
+							<real>293</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>21 351 788 504 0 0 1440 878 </string>
+						<string>0 133 1440 745 0 0 1440 878 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
 					<key>Proportion</key>
-					<string>203pt</string>
+					<string>310pt</string>
 				</dict>
 				<dict>
 					<key>Dock</key>
@@ -310,7 +314,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>MyNewFile14.java</string>
+								<string>MCruxWindowConfiguration.h</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -318,7 +322,19 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>MyNewFile14.java</string>
+										<string>MCruxWindowConfiguration.h</string>
+										<key>_historyCapacity</key>
+										<integer>0</integer>
+										<key>bookmark</key>
+										<string>F1E80006135018C900D65F97</string>
+										<key>history</key>
+										<array>
+											<string>F1E8FFE41350151E00D65F97</string>
+											<string>F1E8FFE51350151E00D65F97</string>
+											<string>F1E80003135018C900D65F97</string>
+											<string>F1E80004135018C900D65F97</string>
+											<string>F1E80005135018C900D65F97</string>
+										</array>
 									</dict>
 									<key>SplitCount</key>
 									<string>1</string>
@@ -329,14 +345,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {580, 269}}</string>
+								<string>{{0, 0}, {1125, 510}}</string>
 								<key>RubberWindowFrame</key>
-								<string>21 351 788 504 0 0 1440 878 </string>
+								<string>0 133 1440 745 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>269pt</string>
+							<string>510pt</string>
 						</dict>
 						<dict>
 							<key>ContentConfiguration</key>
@@ -349,9 +365,9 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 274}, {580, 189}}</string>
+								<string>{{0, 515}, {1125, 189}}</string>
 								<key>RubberWindowFrame</key>
-								<string>21 351 788 504 0 0 1440 878 </string>
+								<string>0 133 1440 745 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
@@ -360,7 +376,7 @@
 						</dict>
 					</array>
 					<key>Proportion</key>
-					<string>580pt</string>
+					<string>1125pt</string>
 				</dict>
 			</array>
 			<key>Name</key>
@@ -515,11 +531,11 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>/Users/mital/Documents/Personal/mcrux/osx/MCrux_bin.xcodeproj</string>
 		<string>F1E8FFBB13500B3F00D65F97</string>
+		<string>/Users/mital/Documents/Personal/mcrux/osx/MCrux_bin.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>21 351 788 504 0 0 1440 878 </string>
+	<string>0 133 1440 745 0 0 1440 878 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>
@@ -540,7 +556,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string></string>
+								<string>MCruxSpecParser.h</string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -549,7 +565,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {500, 218}}</string>
 								<key>RubberWindowFrame</key>
-								<string>42 332 500 500 0 0 1440 878 </string>
+								<string>884 245 500 500 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
@@ -575,7 +591,7 @@
 								<key>Frame</key>
 								<string>{{0, 223}, {500, 236}}</string>
 								<key>RubberWindowFrame</key>
-								<string>42 332 500 500 0 0 1440 878 </string>
+								<string>884 245 500 500 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXBuildResultsModule</string>
@@ -607,7 +623,7 @@
 			<key>WindowContentMinSize</key>
 			<string>486 300</string>
 			<key>WindowString</key>
-			<string>42 332 500 500 0 0 1440 878 </string>
+			<string>884 245 500 500 0 0 1440 878 </string>
 			<key>WindowToolGUID</key>
 			<string>F1E8FFBB13500B3F00D65F97</string>
 			<key>WindowToolIsVisible</key>
