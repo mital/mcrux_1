@@ -23,12 +23,12 @@
 #include "MCruxSpecParser.h"
 #include <src/lib/window/MCruxWindowManager.h>
 
-
-#ifdef WIN32
-#include "window/MCruxWin32Window.h"
 #include <cef/cef.h>
 #include <cef/cef_wrapper.h>
 //#include <cef/transfer_utils.h>
+
+#ifdef WIN32
+#include "window/MCruxWin32Window.h"
 
 #include "../win32/stdafx.h"
 #include <commctrl.h>
