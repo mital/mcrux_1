@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface MCrux_binAppDelegate : NSObject <NSApplicationDelegate> {
+@interface MCrux_binAppDelegate : NSObject{
     NSWindow *window;
 }
 

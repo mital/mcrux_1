@@ -21,7 +21,7 @@
 #ifdef WIN32
 #include "MCruxWin32Window.h"
 #else
-#include <window/MCruxGTKWindow.h>
+//TODO: #include <window/MCruxGTKWindow.h>
 #endif
 
 MCruxWindowManager::MCruxWindowManager(const list<MCruxWindowConfiguration*> & _windowConfigurations)
@@ -39,7 +39,7 @@ MCruxWindowManager::MCruxWindowManager(const list<MCruxWindowConfiguration*> & _
 #ifdef WIN32
 			newWindow = new MCruxWin32Window(mainWindowConfig, this);
 #else
-			newWindow = new MCruxGTKWindow(mainWindowConfig);
+// TODO:			newWindow = new MCruxGTKWindow(mainWindowConfig);
 #endif
 
 			newWindow->ShowWindow();

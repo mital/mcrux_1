@@ -16,8 +16,12 @@
  *
  * @author: Mital Vora.
  **/
+
+#ifdef OS_WIN32
 #include "Resource.h"
 #include <tchar.h>
+#endif
+
 #include <sstream>
 #include <list>
 
@@ -211,6 +215,7 @@ void ClientHandler::SetMainHwnd(CefWindowHandle hwnd)
 /////////////////////// win32 specifics ////////////////
 ////////////////////////////////////////////////////////
 
+#ifdef OS_WIN32
 // ClientHandler implementation
 
 static void AddMenuItem(CefRefPtr<CefBrowser> browser, HMENU menu, int index,
@@ -251,7 +256,7 @@ static void AddMenuSeparator(HMENU menu, int index)
 
   InsertMenuItem(menu, index, TRUE, &mii);
 }
-
+#endif
 
 // Called on the UI thread before a context menu is displayed. To cancel
 // display of the default context menu return RV_HANDLED.
@@ -259,6 +264,7 @@ CefHandler::RetVal ClientHandler::HandleBeforeMenu(CefRefPtr<CefBrowser> browser
                                   const MenuInfo& menuInfo)
 {
 	REQUIRE_UI_THREAD();
+#ifdef OS_WIN32
 	HMENU menu = NULL;
 	std::list<std::wstring> label_list;
 
@@ -337,6 +343,10 @@ CefHandler::RetVal ClientHandler::HandleBeforeMenu(CefRefPtr<CefBrowser> browser
 	DestroyMenu(menu);
 
 	return RV_HANDLED;
+#else
+	// TODO:
+	return RV_CONTINUE;
+#endif
 }
 
 CefHandler::RetVal ClientHandler::HandleMenuAction(CefRefPtr<CefBrowser> browser,
@@ -472,8 +482,12 @@ void ClientHandler::SendNotification(NotificationType type)
 
 void ClientHandler::resizeBrowser()
 {
+#ifdef OS_WIN32
     RECT rcClient;
 	GetClientRect(this->m_MainHwnd, &rcClient);
 	MoveWindow(m_BrowserHwnd, 0, 0, rcClient.right, rcClient.bottom, TRUE);
+#else
+	// TODO:
+#endif
 
 }
