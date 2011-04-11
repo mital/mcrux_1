@@ -21,7 +21,7 @@
 #ifndef _MCRUX_H_
 #define _MCRUX_H_
 
-#include <iostream>
+#include <string>
 
 using namespace std;
 
