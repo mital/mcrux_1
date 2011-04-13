@@ -3,7 +3,7 @@
 //  MCrux_bin
 //
 //  Created by Mital Vora on 09/04/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Copyright 2011 MCrux Inc. All rights reserved.
 //
 
 #import <Cocoa/Cocoa.h>
@@ -14,15 +14,13 @@
 
 std::string getPath()
 {
+	NSString* bundlePath = [[NSBundle mainBundle] bundlePath];
+	return std::string([bundlePath UTF8String]);
 	
 }
 
 int main(int argc, char *argv[])
-{
-/*	//string mcruxspec_path = "C:\\mcrux\\newapi\\window_create.mcruxspec";
-	//string mcruxspec_path = "C:\\mcrux\\myapplication.mcruxspec";
-	//string mcruxspec_path = "C:\\mcrux\\2Calculator\\calculator.mcruxspec";
-	
+{	
 	const std::string path(getPath());
 	std::string mcruxspec_path(path);
 	mcruxspec_path += "\\app.mcruxspec";
@@ -30,6 +28,6 @@ int main(int argc, char *argv[])
 	plugins_path += "\\plugins";
 	
 	MCrux mcrux;
-	mcrux.InitializeAndRunWith(mcruxspec_path, plugins_path);
- */   return 0;//NSApplicationMain(argc,  (const char **) argv);
+	mcrux.InitializeAndRunWith(mcruxspec_path, plugins_path, argc, argv);
+    return 0;
 }

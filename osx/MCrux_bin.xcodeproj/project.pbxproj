@@ -11,6 +11,7 @@
 		256AC3DA0F4B6AC300CF3369 /* MCrux_binAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 256AC3D90F4B6AC300CF3369 /* MCrux_binAppDelegate.m */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		F17FC51D13558259009F04C6 /* MCruxOSXWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F17FC51B13558259009F04C6 /* MCruxOSXWindow.cpp */; };
 		F19A0A1E1351346B005EB8E0 /* libcef.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F19A0A1D1351346B005EB8E0 /* libcef.dylib */; };
 		F19A0A41135136F7005EB8E0 /* libcef_dll_wrapper.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F19A0A40135136F7005EB8E0 /* libcef_dll_wrapper.a */; };
 		F19A0A84135174B8005EB8E0 /* MCrux.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F19A0A83135174B8005EB8E0 /* MCrux.cpp */; };
@@ -35,6 +36,8 @@
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		8D1107310486CEB800E47090 /* MCrux_bin-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "MCrux_bin-Info.plist"; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* MCrux_bin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MCrux_bin.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F17FC51B13558259009F04C6 /* MCruxOSXWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MCruxOSXWindow.cpp; path = ../src/lib/window/MCruxOSXWindow.cpp; sourceTree = SOURCE_ROOT; };
+		F17FC51C13558259009F04C6 /* MCruxOSXWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MCruxOSXWindow.h; path = ../src/lib/window/MCruxOSXWindow.h; sourceTree = SOURCE_ROOT; };
 		F19A0A1D1351346B005EB8E0 /* libcef.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcef.dylib; path = /Users/mital/Documents/Personal/mcrux/MCruxLibraries/lib/libcef.dylib; sourceTree = "<absolute>"; };
 		F19A0A40135136F7005EB8E0 /* libcef_dll_wrapper.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcef_dll_wrapper.a; path = /Users/mital/Documents/Personal/mcrux/MCruxLibraries/lib/libcef_dll_wrapper.a; sourceTree = "<absolute>"; };
 		F19A0A5113513E0B005EB8E0 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -107,6 +110,8 @@
 		29B97314FDCFA39411CA2CEA /* MCrux_bin */ = {
 			isa = PBXGroup;
 			children = (
+				F17FC51B13558259009F04C6 /* MCruxOSXWindow.cpp */,
+				F17FC51C13558259009F04C6 /* MCruxOSXWindow.h */,
 				F19A0AB313517DE9005EB8E0 /* MCrux_bin.mm */,
 				F19A0A8713517506005EB8E0 /* MCrux.h */,
 				F19A0A83135174B8005EB8E0 /* MCrux.cpp */,
@@ -230,6 +235,7 @@
 				F1E8001713501A4300D65F97 /* BrowserHandler.cpp in Sources */,
 				F19A0A84135174B8005EB8E0 /* MCrux.cpp in Sources */,
 				F19A0AB413517DE9005EB8E0 /* MCrux_bin.mm in Sources */,
+				F17FC51D13558259009F04C6 /* MCruxOSXWindow.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -24,7 +24,7 @@
 #include <cef/cef_wrapper.h>
 
 
-#ifdef _WIN32
+#ifdef OS_WIN32
 
 #include <windows.h>
 
