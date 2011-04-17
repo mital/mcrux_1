@@ -18,27 +18,33 @@
  **/
 
 #include "MCruxOSXWindow.h"
-
-//map<HWND, MCruxOSXWindow *> MCruxOSXWindow::mcruxWindows;
-
+//#import <Cocoa/Cocoa.h>
 
 MCruxOSXWindow::MCruxOSXWindow(const MCruxWindowConfiguration * _config,
 						 MCruxWindowManager * windowManager)
-	: MCruxWindow(_config),
-	  handler(NULL)
+	: MCruxWindow(_config)//,
+//	  wnd(NULL)
 {
-	this->insertBrowser();
+/*	NSRect screen_rect = [[NSScreen mainScreen] visibleFrame];
+	NSRect window_rect = screen_rect;// { {0, screen_rect.size.height - kWindowHeight},
+	//		{kWindowWidth, kWindowHeight} };
+	NSWindow* wnd = [[NSWindow alloc]
+						 initWithContentRect:window_rect
+						 styleMask:(NSTitledWindowMask |
+									NSClosableWindowMask |
+									NSMiniaturizableWindowMask |
+									NSResizableWindowMask )
+						 backing:NSBackingStoreBuffered
+						 defer:NO];*/
+//	[mainWnd setTitle:];
 
-//	MCruxOSXWindow::mcruxWindows[hWnd] = this;
+	
+	this->insertBrowser();
 }
 
 
 MCruxOSXWindow::~MCruxOSXWindow()
 {
-//	if(MCruxOSXWindow::mcruxWindows[hWnd])
-	{
-//		MCruxOSXWindow::mcruxWindows.erase(MCruxOSXWindow::mcruxWindows.find(hWnd));
-	}
 	delete config;
 }
 
@@ -60,6 +66,7 @@ void MCruxOSXWindow::insertBrowser()
 
 int MCruxOSXWindow::ShowWindow() const
 {
+	//[wnd makeKeyAndOrderFront: nil];
 	return 0;
 }
 
@@ -78,5 +85,5 @@ int MCruxOSXWindow::UpdateWindow() const
 
 void MCruxOSXWindow::resize() const
 {
-	handler->resizeBrowser();
+//	handler->resizeBrowser();
 }

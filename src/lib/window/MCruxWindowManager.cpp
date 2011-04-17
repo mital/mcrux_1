@@ -20,8 +20,8 @@
 
 #ifdef WIN32
 #include "MCruxWin32Window.h"
-#else
-//TODO: #include <window/MCruxGTKWindow.h>
+#elif OS_OSX
+#include "MCruxOSXWindow.h"
 #endif
 
 MCruxWindowManager::MCruxWindowManager(const list<MCruxWindowConfiguration*> & _windowConfigurations)
@@ -36,10 +36,10 @@ MCruxWindowManager::MCruxWindowManager(const list<MCruxWindowConfiguration*> & _
 			MCruxWindowConfiguration * mainWindowConfig = *oIter;
       MCruxWindow * newWindow = NULL;
 
-#ifdef WIN32
+#ifdef OS_WIN32
 			newWindow = new MCruxWin32Window(mainWindowConfig, this);
-#else
-// TODO:			newWindow = new MCruxGTKWindow(mainWindowConfig);
+#elif OS_OSX
+			newWindow = new MCruxOSXWindow(mainWindowConfig, this);
 #endif
 
 			newWindow->ShowWindow();

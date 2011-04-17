@@ -17,18 +17,18 @@
  * @author: Mital Vora.
  **/
 
-#ifndef _MCRUXWIN32WINDOW_H_
-#define _MCRUXWIN32WINDOW_H_
+#ifndef _MCRUX_OSX_WINDOW_H_
+#define _MCRUX_OSX_WINDOW_H_
+
+//#import <Cocoa/Cocoa.h>
 
 #include "MCruxWindow.h"
 #include "MCruxWindowConfiguration.h"
-#include "BrowserHandler.h"
 
 class MCruxWindowManager;
 
 class MCruxOSXWindow : public MCruxWindow
-{
-	
+{	
 public:
 	MCruxOSXWindow(const MCruxWindowConfiguration * _config,
 		MCruxWindowManager * windowManager);
@@ -41,10 +41,8 @@ public:
 	virtual void resize() const;
 
 private:
-	CefRefPtr<ClientHandler> handler;
 
-//	static map<HWND, MCruxOSXWindow *> mcruxWindows;
-
+//	NSWindow * wnd;
 };
 
-#endif // _MCRUXWIN32WINDOW_H_
+#endif // _MCRUX_OSX_WINDOW_H_

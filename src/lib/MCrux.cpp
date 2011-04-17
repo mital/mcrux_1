@@ -125,6 +125,7 @@ bool MCrux::InitializeAndRunWith(const string & mcruxspec_path,
   list<MCruxWindowConfiguration*> mcruxWindowConfigs;
   parser.getWindowConfigList(mcruxWindowConfigs);
 
+#ifdef OS_WIN32
 #define TEST_SINGLE_THREADED_MESSAGE_LOOP
 #ifdef TEST_SINGLE_THREADED_MESSAGE_LOOP
   // Initialize the CEF with messages processed using the current application's
@@ -134,6 +135,7 @@ bool MCrux::InitializeAndRunWith(const string & mcruxspec_path,
   // Initialize the CEF with messages processed using a separate UI thread.
   settings.multi_threaded_message_loop = true;
 #endif
+#endif // OS_WIN32
 
   // Setting private plugin path.
   CefString str(plugin_path);
@@ -141,7 +143,7 @@ bool MCrux::InitializeAndRunWith(const string & mcruxspec_path,
   cef_string_list_append(settings.extra_plugin_paths, str.GetStruct());
 
   browserDefaults.web_security_disabled = true;
-  CefInitialize(settings, browserDefaults);
+//  CefInitialize(settings, browserDefaults);
 
   MCruxWindowManager windowManager(mcruxWindowConfigs);
 
@@ -171,11 +173,14 @@ bool MCrux::InitializeAndRunWith(const string & mcruxspec_path,
   }
   else
   {
-#ifdef WIN32
+#ifdef OS_WIN32
     ::MessageBoxA(0, "mcruxspec file does not have any windows\n you can refer documentation at http://code.google.com/p/mcrux/wiki/MCruxSpecFile", "error", MB_OK);
+#elif OS_OSX
+	  cerr << "error: mcruxspec file does not have any windows" << endl 
+		<< "you can refer documentation at http://code.google.com/p/mcrux/wiki/MCruxSpecFile" << endl;
 #else
-    cout << "error: mcruxspec file does not have any windows" << endl 
-      << "you can refer documentation at http://code.google.com/p/mcrux/wiki/MCruxSpecFile" << endl;
+	  cerr << "error: mcruxspec file does not have any windows" << endl
+		<< "you can refer documentation at http://code.google.com/p/mcrux/wiki/MCruxSpecFile" << endl;
 #endif
   }
   
