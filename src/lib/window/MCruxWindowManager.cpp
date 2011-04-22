@@ -19,7 +19,7 @@
 #include "MCruxWindowManager.h"
 
 #ifdef WIN32
-#include "MCruxWin32Window.h"
+#include "win32/MCruxWin32Window.h"
 #elif OS_OSX
 #include "MCruxOSXWindow.h"
 #endif

@@ -28,7 +28,7 @@
 #include <cef/cef_wrapper.h>
 //#include <cef/transfer_utils.h>
 
-#include "window/MCruxWin32Window.h"
+#include "window/win32/MCruxWin32Window.h"
 
 #include "../win32/stdafx.h"
 #include <commctrl.h>

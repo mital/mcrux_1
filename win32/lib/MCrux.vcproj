@@ -191,7 +191,7 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath="..\..\src\lib\window\BrowserHandler.cpp"
+				RelativePath="..\..\src\lib\window\win32\BrowserHandler.cpp"
 				>
 			</File>
 			<File
@@ -203,7 +203,7 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\src\lib\window\MCruxWin32Window.cpp"
+				RelativePath="..\..\src\lib\window\win32\MCruxWin32Window.cpp"
 				>
 			</File>
 			<File
@@ -225,7 +225,7 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
-				RelativePath="..\..\src\lib\window\BrowserHandler.h"
+				RelativePath="..\..\src\lib\window\win32\BrowserHandler.h"
 				>
 			</File>
 			<File
@@ -237,7 +237,7 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\src\lib\window\MCruxWin32Window.h"
+				RelativePath="..\..\src\lib\window\win32\MCruxWin32Window.h"
 				>
 			</File>
 			<File

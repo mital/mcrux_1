@@ -20,8 +20,8 @@
 #ifndef _MCRUXWIN32WINDOW_H_
 #define _MCRUXWIN32WINDOW_H_
 
-#include "MCruxWindow.h"
-#include "MCruxWindowConfiguration.h"
+#include "../MCruxWindow.h"
+#include "../MCruxWindowConfiguration.h"
 #include "BrowserHandler.h"
 
 #ifdef WIN32
