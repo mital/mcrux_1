@@ -12,13 +12,10 @@
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		F17FC51D13558259009F04C6 /* MCruxOSXWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F17FC51B13558259009F04C6 /* MCruxOSXWindow.cpp */; };
-		F19A0A1E1351346B005EB8E0 /* libcef.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F19A0A1D1351346B005EB8E0 /* libcef.dylib */; };
-		F19A0A41135136F7005EB8E0 /* libcef_dll_wrapper.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F19A0A40135136F7005EB8E0 /* libcef_dll_wrapper.a */; };
 		F19A0A84135174B8005EB8E0 /* MCrux.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F19A0A83135174B8005EB8E0 /* MCrux.cpp */; };
 		F19A0AB413517DE9005EB8E0 /* MCrux_bin.mm in Sources */ = {isa = PBXBuildFile; fileRef = F19A0AB313517DE9005EB8E0 /* MCrux_bin.mm */; };
 		F1E8000B135019D300D65F97 /* MCruxWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F1E80009135019D300D65F97 /* MCruxWindow.cpp */; };
 		F1E80010135019F400D65F97 /* MCruxWindowManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F1E8000E135019F400D65F97 /* MCruxWindowManager.cpp */; };
-		F1E8001713501A4300D65F97 /* BrowserHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F1E8001513501A4300D65F97 /* BrowserHandler.cpp */; };
 		F1E8FFDE1350131D00D65F97 /* MCruxSpecParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F1E8FFDC1350131D00D65F97 /* MCruxSpecParser.cpp */; };
 		F1E8FFF61350172200D65F97 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F1E8FFF51350172200D65F97 /* libxml2.dylib */; };
 		F1E8FFFB1350177000D65F97 /* MCruxWindowConfiguration.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F1E8FFF91350177000D65F97 /* MCruxWindowConfiguration.cpp */; };
@@ -38,8 +35,6 @@
 		8D1107320486CEB800E47090 /* MCrux_bin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MCrux_bin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F17FC51B13558259009F04C6 /* MCruxOSXWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MCruxOSXWindow.cpp; path = ../src/lib/window/MCruxOSXWindow.cpp; sourceTree = SOURCE_ROOT; };
 		F17FC51C13558259009F04C6 /* MCruxOSXWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MCruxOSXWindow.h; path = ../src/lib/window/MCruxOSXWindow.h; sourceTree = SOURCE_ROOT; };
-		F19A0A1D1351346B005EB8E0 /* libcef.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcef.dylib; path = /Users/mital/Documents/Personal/mcrux/MCruxLibraries/lib/libcef.dylib; sourceTree = "<absolute>"; };
-		F19A0A40135136F7005EB8E0 /* libcef_dll_wrapper.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcef_dll_wrapper.a; path = /Users/mital/Documents/Personal/mcrux/MCruxLibraries/lib/libcef_dll_wrapper.a; sourceTree = "<absolute>"; };
 		F19A0A5113513E0B005EB8E0 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		F19A0A83135174B8005EB8E0 /* MCrux.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MCrux.cpp; path = ../src/lib/MCrux.cpp; sourceTree = SOURCE_ROOT; };
 		F19A0A8713517506005EB8E0 /* MCrux.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MCrux.h; path = ../include/mcrux/MCrux.h; sourceTree = SOURCE_ROOT; };
@@ -48,8 +43,6 @@
 		F1E8000A135019D300D65F97 /* MCruxWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MCruxWindow.h; path = ../src/lib/window/MCruxWindow.h; sourceTree = SOURCE_ROOT; };
 		F1E8000E135019F400D65F97 /* MCruxWindowManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MCruxWindowManager.cpp; path = ../src/lib/window/MCruxWindowManager.cpp; sourceTree = SOURCE_ROOT; };
 		F1E8000F135019F400D65F97 /* MCruxWindowManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MCruxWindowManager.h; path = ../src/lib/window/MCruxWindowManager.h; sourceTree = SOURCE_ROOT; };
-		F1E8001513501A4300D65F97 /* BrowserHandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BrowserHandler.cpp; path = ../src/lib/window/BrowserHandler.cpp; sourceTree = SOURCE_ROOT; };
-		F1E8001613501A4300D65F97 /* BrowserHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BrowserHandler.h; path = ../src/lib/window/BrowserHandler.h; sourceTree = SOURCE_ROOT; };
 		F1E8FFDC1350131D00D65F97 /* MCruxSpecParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MCruxSpecParser.cpp; path = ../src/lib/MCruxSpecParser.cpp; sourceTree = SOURCE_ROOT; };
 		F1E8FFDD1350131D00D65F97 /* MCruxSpecParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MCruxSpecParser.h; path = ../src/lib/MCruxSpecParser.h; sourceTree = SOURCE_ROOT; };
 		F1E8FFF51350172200D65F97 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
@@ -64,8 +57,6 @@
 			files = (
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				F1E8FFF61350172200D65F97 /* libxml2.dylib in Frameworks */,
-				F19A0A1E1351346B005EB8E0 /* libcef.dylib in Frameworks */,
-				F19A0A41135136F7005EB8E0 /* libcef_dll_wrapper.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,8 +106,6 @@
 				F19A0AB313517DE9005EB8E0 /* MCrux_bin.mm */,
 				F19A0A8713517506005EB8E0 /* MCrux.h */,
 				F19A0A83135174B8005EB8E0 /* MCrux.cpp */,
-				F1E8001513501A4300D65F97 /* BrowserHandler.cpp */,
-				F1E8001613501A4300D65F97 /* BrowserHandler.h */,
 				F1E8000E135019F400D65F97 /* MCruxWindowManager.cpp */,
 				F1E8000F135019F400D65F97 /* MCruxWindowManager.h */,
 				F1E80009135019D300D65F97 /* MCruxWindow.cpp */,
@@ -131,8 +120,6 @@
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 				F1E8FFF51350172200D65F97 /* libxml2.dylib */,
-				F19A0A1D1351346B005EB8E0 /* libcef.dylib */,
-				F19A0A40135136F7005EB8E0 /* libcef_dll_wrapper.a */,
 				F19A0A5113513E0B005EB8E0 /* AppKit.framework */,
 			);
 			name = MCrux_bin;
@@ -232,7 +219,6 @@
 				F1E8FFFB1350177000D65F97 /* MCruxWindowConfiguration.cpp in Sources */,
 				F1E8000B135019D300D65F97 /* MCruxWindow.cpp in Sources */,
 				F1E80010135019F400D65F97 /* MCruxWindowManager.cpp in Sources */,
-				F1E8001713501A4300D65F97 /* BrowserHandler.cpp in Sources */,
 				F19A0A84135174B8005EB8E0 /* MCrux.cpp in Sources */,
 				F19A0AB413517DE9005EB8E0 /* MCrux_bin.mm in Sources */,
 				F17FC51D13558259009F04C6 /* MCruxOSXWindow.cpp in Sources */,

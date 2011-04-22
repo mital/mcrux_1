@@ -23,11 +23,11 @@
 #include "MCruxSpecParser.h"
 #include <src/lib/window/MCruxWindowManager.h>
 
+#ifdef WIN32
 #include <cef/cef.h>
 #include <cef/cef_wrapper.h>
 //#include <cef/transfer_utils.h>
 
-#ifdef WIN32
 #include "window/MCruxWin32Window.h"
 
 #include "../win32/stdafx.h"
@@ -60,10 +60,11 @@ BOOL APIENTRY DllMain( HMODULE hModule,
 #pragma managed(pop)
 #endif
 
-#endif
-
 static CefSettings settings;
 static CefBrowserSettings browserDefaults;
+
+#endif
+
 
 MCrux::MCrux()
 {
@@ -135,15 +136,17 @@ bool MCrux::InitializeAndRunWith(const string & mcruxspec_path,
   // Initialize the CEF with messages processed using a separate UI thread.
   settings.multi_threaded_message_loop = true;
 #endif
+
+	// Setting private plugin path.
+	CefString str(plugin_path);
+	settings.extra_plugin_paths = cef_string_list_alloc();
+	cef_string_list_append(settings.extra_plugin_paths, str.GetStruct());
+	
+	browserDefaults.web_security_disabled = true;
+	//  CefInitialize(settings, browserDefaults);
+
 #endif // OS_WIN32
 
-  // Setting private plugin path.
-  CefString str(plugin_path);
-  settings.extra_plugin_paths = cef_string_list_alloc();
-  cef_string_list_append(settings.extra_plugin_paths, str.GetStruct());
-
-  browserDefaults.web_security_disabled = true;
-//  CefInitialize(settings, browserDefaults);
 
   MCruxWindowManager windowManager(mcruxWindowConfigs);
 
