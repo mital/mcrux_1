@@ -248,7 +248,7 @@
 			</File>
 		</Filter>
 		<Filter
-			Name="win32"
+			Name="win32_extras"
 			>
 			<File
 				RelativePath="..\MCruxExport.h"
@@ -264,7 +264,7 @@
 			</File>
 		</Filter>
 		<Filter
-			Name="win32_source"
+			Name="win32"
 			>
 			<File
 				RelativePath="..\..\src\lib\window\win32\BrowserHandler.cpp"
@@ -280,6 +280,14 @@
 			</File>
 			<File
 				RelativePath="..\..\src\lib\window\win32\MCruxWin32Window.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\src\lib\win32\Win32Host.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\src\lib\win32\Win32Host.h"
 				>
 			</File>
 		</Filter>

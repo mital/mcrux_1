@@ -53,7 +53,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 	std::string plugins_path(path);
 	plugins_path += "\\plugins";
 
-	Host host;
-	host.InitializeAndRunWith(mcruxspec_path, plugins_path);
+	Host* host = getHost();
+	host->InitializeAndRunWith(mcruxspec_path, plugins_path);
 	return 0;
 }

@@ -18,34 +18,29 @@
  **/
 
 
-#ifndef _HOST_H_
-#define _HOST_H_
+#ifndef _WIN32_HOST_H_
+#define _WIN32_HOST_H_
+
+#include <win32/MCruxExport.h>
+#include <mcrux/Host.h>
 
 #include <string>
 
 using namespace std;
 
-#ifdef WIN32
-#include <win32/MCruxExport.h>
-#else
-#define MCRUX_API
-#endif
-
-class MCRUX_API Host
+class MCRUX_API Win32Host : public Host
 {
-	virtual void Initialize()=0;
-	virtual void UnInitialize()=0;
+	virtual void Initialize();
+	virtual void UnInitialize();
+	virtual void RunLoop(const string & plugin_path);
 
-	virtual void RunLoop(const string & plugin_path)=0;
 public:
 
-	Host();
-	virtual ~Host();
+	Win32Host();
+	virtual ~Win32Host();
 
-	bool InitializeAndRunWith(const string & mcruxspec_path,
-		const string & plugin_path);
+	//bool InitializeAndRunWith(const string & mcruxspec_path,
+	//	const string & plugin_path);
 };
 
-MCRUX_API Host* getHost();
-
-#endif // _HOST_H_
+#endif // _WIN32_HOST_H_
