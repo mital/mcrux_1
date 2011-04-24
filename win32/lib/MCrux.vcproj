@@ -191,19 +191,11 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath="..\..\src\lib\window\win32\BrowserHandler.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\src\lib\MCrux.cpp"
+				RelativePath="..\..\src\lib\Host.cpp"
 				>
 			</File>
 			<File
 				RelativePath="..\..\src\lib\MCruxSpecParser.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\src\lib\window\win32\MCruxWin32Window.cpp"
 				>
 			</File>
 			<File
@@ -225,19 +217,11 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
-				RelativePath="..\..\src\lib\window\win32\BrowserHandler.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\include\mcrux\MCrux.h"
+				RelativePath="..\..\include\mcrux\Host.h"
 				>
 			</File>
 			<File
 				RelativePath="..\..\src\lib\MCruxSpecParser.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\src\lib\window\win32\MCruxWin32Window.h"
 				>
 			</File>
 			<File
@@ -276,6 +260,26 @@
 			</File>
 			<File
 				RelativePath="..\stdafx.h"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="win32_source"
+			>
+			<File
+				RelativePath="..\..\src\lib\window\win32\BrowserHandler.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\src\lib\window\win32\BrowserHandler.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\src\lib\window\win32\MCruxWin32Window.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\src\lib\window\win32\MCruxWin32Window.h"
 				>
 			</File>
 		</Filter>

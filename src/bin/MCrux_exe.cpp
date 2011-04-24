@@ -22,7 +22,7 @@
 
 #include <win32/stdafx.h>
 
-#include <MCrux/MCrux.h>
+#include <MCrux/Host.h>
 
 std::string getPath()
 {	
@@ -53,7 +53,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 	std::string plugins_path(path);
 	plugins_path += "\\plugins";
 
-	MCrux mcrux;
-	mcrux.InitializeAndRunWith(mcruxspec_path, plugins_path);
+	Host host;
+	host.InitializeAndRunWith(mcruxspec_path, plugins_path);
 	return 0;
 }

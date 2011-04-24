@@ -19,7 +19,7 @@
 
 // MCrux.cpp : Defines the entry point for the DLL application.
 //
-#include <mcrux/MCrux.h>
+#include <mcrux/Host.h>
 #include "MCruxSpecParser.h"
 #include <src/lib/window/MCruxWindowManager.h>
 
@@ -66,16 +66,16 @@ static CefBrowserSettings browserDefaults;
 #endif
 
 
-MCrux::MCrux()
+Host::Host()
 {
 }
 
 
-MCrux::~MCrux()
+Host::~Host()
 {
 }
 
-void MCrux::Initialize(
+void Host::Initialize(
 #ifndef WIN32
     int argc, char **argv
 #endif
@@ -96,7 +96,7 @@ void MCrux::Initialize(
 #endif
 }
 
-void MCrux::UnInitialize()
+void Host::UnInitialize()
 {
 #ifdef WIN32
   // Shut down COM.
@@ -105,7 +105,7 @@ void MCrux::UnInitialize()
 #endif
 }
 
-bool MCrux::InitializeAndRunWith(const string & mcruxspec_path,
+bool Host::InitializeAndRunWith(const string & mcruxspec_path,
 	  const string & plugin_path
 #ifndef WIN32
     , int argc, char **argv

@@ -32,27 +32,27 @@ using namespace std;
 #endif
 
 
-class MCRUX_API MCrux
+class MCRUX_API Host
 {
-  void Initialize(
+	void Initialize(
 #ifndef WIN32
-      int argc, char **argv
+		int argc, char **argv
 #endif
-      );
+			);
 
-  void UnInitialize();
+	void UnInitialize();
 
-  public:
+public:
 
-  MCrux();
-  ~MCrux();
+	Host();
+	~Host();
 
-  bool InitializeAndRunWith(const string & mcruxspec_path,
-	  const string & plugin_path
+	bool InitializeAndRunWith(const string & mcruxspec_path,
+		const string & plugin_path
 #ifndef WIN32
-      , int argc, char **argv
+		, int argc, char **argv
 #endif
-      );
+		);
 };
 
 #endif // _MCRUX_H_
